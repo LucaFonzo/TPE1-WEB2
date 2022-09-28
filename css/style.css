@@ -1,0 +1,7 @@
+.container-register {
+  display: grid;
+  justify-content: center;
+  align-content: center;
+  border: 1px solid red;
+  height: 800px;
+}

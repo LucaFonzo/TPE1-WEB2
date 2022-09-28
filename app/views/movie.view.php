@@ -1,8 +1,10 @@
 <?php
-require_once 'dbFunctions.php';
 
-function showHome(){
+
+class MovieView{
+  function showMovies($movies){
   include './templates/header.php';
 
   include './templates/footer.php';
+  }
 }
