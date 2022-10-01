@@ -1,7 +1,42 @@
-.container-register {
+.item-container {
+  height: 70vh;
+  max-width: 1200px;
   display: grid;
-  justify-content: center;
-  align-content: center;
-  border: 1px solid red;
-  height: 800px;
+  justify-content: left;
+  margin-left: 50px;
+  margin-top: 100px;
+}
+.item-title {
+  font-size: 3em;
+}
+.author span {
+  font-size: 1em;
+  font-weight: bold;
+}
+.description-container {
+  display: flex;
+}
+.description-item {
+  margin-left: 10px;
+  font-size: 1.2em;
+}
+
+.footer-site {
+  background-color: #f1f1f1;
+  padding: 50px;
+}
+
+.btn-container {
+  display: flex;
+}
+
+.btn-container a{
+  margin-left: 10px;
+}
+.btn-container a:first-child {
+  margin-left: 0;
+}
+
+.container-form {
+  margin: 20px;
 }
