@@ -1,5 +1,7 @@
 <?php
 require_once 'app/controllers/movie.controller.php';
+require_once 'app/controllers/auth.controller.php';
+require_once 'app/controllers/gender.controller.php';
 
 define('BASE_URL', '//'.$_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']).'/');
 
@@ -49,7 +51,34 @@ switch ($params[0]) {
     $controller = new MovieController();
     $controller->deleteMovie($id);
     break;
-  default:
+  case 'formLogin':
+    $controller = new AuthController();
+    $controller->showFormLogin();
+    break;
+  case 'genderForm':
+    $controller = new GenderController();
+    $controller->showGendersAndForm();
+    break;
+    case 'addGender':
+      $controller = new GenderController();
+      $controller->addGender();
+    break;
+    case 'editForm':
+      $id = $params[1];
+      $controller = new GenderController();
+      $controller->showEditForm($id);
+      break;
+    case 'editGender':
+      $id = $params[1];
+      $controller = new GenderController();
+      $controller->editGender($id);
+      break;
+      case 'deleteGender':
+        $id = $params[1];
+        $controller = new GenderController();
+        $controller->deleteGender($id);
+        break;
+    default:
     $controller = new MovieController();
     $controller->showMovies();
     break;

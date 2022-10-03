@@ -54,14 +54,14 @@ class MovieController {
     }
   }
   public function editMovie($id){
-    if (isset($_POST["titulo"]) && isset($_POST["autor"]) && $_POST["descripcion"] && $_POST["fechaEstreno"] && $_POST["imagen"] && $_POST["genero"]){
+    if (isset($_POST["titulo"]) && $_POST["descripcion"] && isset($_POST["autor"])  && $_POST["fechaEstreno"] && $_POST["imagen"] && $_POST["genero"]){
       $titulo = $_POST["titulo"];
       $autor = $_POST["autor"];
       $descripcion = $_POST["descripcion"];
       $fechaEstreno = $_POST["fechaEstreno"];
       $linkImagen = $_POST["imagen"];
       $idGenero = $_POST["genero"];
-      $this->modelMovie->editMovie($titulo,$autor,$descripcion,$fechaEstreno,$linkImagen,$idGenero,$id);
+      $this->modelMovie->editMovie($titulo,$descripcion,$autor,$fechaEstreno,$linkImagen,$idGenero,$id);
       header("Location: " . BASE_URL);
     }
   }

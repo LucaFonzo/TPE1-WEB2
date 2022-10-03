@@ -11,7 +11,7 @@ class GenderModel {
       $db = new PDO('mysql:host=localhost;'.'dbname=db_movies;charset=utf8', 'root', '');
       return $db;
     } catch (PDOException $error) {
-      echo $error;
+      return false;
     }
   }
 
@@ -22,12 +22,37 @@ class GenderModel {
     $genders = $query->fetchAll(PDO::FETCH_OBJ);
     return $genders;
   } catch (PDOException $error) {
-    echo $error;
+    return false;
   }
   }
 
+  public function getGenderByID($id){
+    $query = $this->db->prepare("SELECT * FROM genders WHERE ID = ?");
+    $query->execute([$id]);
+    $gender = $query->fetchAll(PDO::FETCH_OBJ);
+    return $gender;
+  }
+
   public function addGender($gender){
-    $query = $this->db->prepare('INSERT INTO `genero` (`ID`, `nombre`) VALUES (?, ?)');
-    $query->execute([null,$gender]);
+    try {
+      $query = $this->db->prepare('INSERT INTO `genders` (`ID`, `nombre`) VALUES (?, ?)');
+      $query->execute([null,$gender]);
+    } catch (PDOException $error) {
+      return false;
+    }
+  }
+  public function editGender($gender,$id){
+    $query = $this->db->prepare('UPDATE `genders` SET `nombre` = ? WHERE `genders`.`ID` = ?');
+    $query->execute([$gender,$id]);
+  }
+
+  public function deleteGender($id){
+    try {
+      $query = $this->db->prepare("DELETE FROM genders WHERE `genders`.`ID` = ?");
+      $query->execute([$id]);
+    } catch (\Throwable $th) {
+      echo $th;
+    }
+    
   }
 }

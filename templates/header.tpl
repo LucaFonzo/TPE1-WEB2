@@ -35,15 +35,14 @@
       </ul>
           <div class="dropdown mx-3">
       <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="false">
-        Agregar item
+        Agregar Item/Genero
       </button>
       <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
         <li><a href="showAddMovie" class="dropdown-item" type="button">Agregar Pelicula</a></li>
+        <li><a href="genderForm" class="dropdown-item" type="button">Agregar/Editar/Eliminar<br>Genero</a></li>
       </ul>
       </div>
-      <form class="d-flex" action="login">
-        <button class="btn btn-outline-success" type="submit">Login</button>
-      </form>
+        <a href="formLogin" class="btn btn-outline-success" type="submit">Login</a>
     </div>
   </div>
 </nav>
