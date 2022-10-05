@@ -11,8 +11,8 @@ class MovieView{
   $this->smarty->assign('genders',$genders);
   $this->smarty->display('movies.tpl');
   }
-  public function showMovie($data,$genders){
-    $this->smarty->assign('data',$data);
+  public function showMovie($movie,$genders){
+    $this->smarty->assign('movie',$movie[0]);
     $this->smarty->assign('genders',$genders);
     $this->smarty->display('item.tpl');
   }
