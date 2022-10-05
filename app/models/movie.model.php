@@ -8,14 +8,14 @@ class MovieModel{
       $db = new PDO('mysql:host=localhost;'.'dbname=db_movies;charset=utf8', 'root', '');
       return $db;
   }
-  function getAllMovies(){
-      $query = $this->db->prepare("SELECT * FROM movies");
-      $query->execute();
-      $movies = $query->fetchAll(PDO::FETCH_OBJ);
-      return $movies;
+  public function getAllMoviesAndGenderName(){
+    $query = $this->db->prepare("SELECT movies.*, genders.* FROM movies JOIN genders ON movies.id_genero_fk = genders.ID_GENERO");
+    $query->execute();
+    $movies = $query->fetchAll(PDO::FETCH_OBJ);
+    return $movies;
   }
   public function getMoviesByGender($id){
-    $query = $this->db->prepare("SELECT * FROM movies WHERE id_genero_fk = ?");
+    $query = $this->db->prepare("SELECT movies.*, genders.* FROM movies JOIN genders ON movies.id_genero_fk = genders.ID_GENERO WHERE movies.id_genero_fk = ?");
     $query->execute([$id]);
     $movies = $query->fetchAll(PDO::FETCH_OBJ);
     return $movies;
@@ -40,7 +40,3 @@ class MovieModel{
     $query->execute([$id]);
   }
 }
-
-
-
-

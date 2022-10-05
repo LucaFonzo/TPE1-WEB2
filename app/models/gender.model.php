@@ -27,7 +27,7 @@ class GenderModel {
   }
 
   public function getGenderByID($id){
-    $query = $this->db->prepare("SELECT * FROM genders WHERE ID = ?");
+    $query = $this->db->prepare("SELECT * FROM genders WHERE ID_GENERO = ?");
     $query->execute([$id]);
     $gender = $query->fetchAll(PDO::FETCH_OBJ);
     return $gender;
@@ -35,20 +35,20 @@ class GenderModel {
 
   public function addGender($gender){
     try {
-      $query = $this->db->prepare('INSERT INTO `genders` (`ID`, `nombre`) VALUES (?, ?)');
+      $query = $this->db->prepare('INSERT INTO `genders` (`ID_GENERO`, `nombre`) VALUES (?, ?)');
       $query->execute([null,$gender]);
     } catch (PDOException $error) {
       return false;
     }
   }
   public function editGender($gender,$id){
-    $query = $this->db->prepare('UPDATE `genders` SET `nombre` = ? WHERE `genders`.`ID` = ?');
+    $query = $this->db->prepare('UPDATE `genders` SET `nombre` = ? WHERE `genders`.`ID_GENERO` = ?');
     $query->execute([$gender,$id]);
   }
 
   public function deleteGender($id){
     try {
-      $query = $this->db->prepare("DELETE FROM genders WHERE `genders`.`ID` = ?");
+      $query = $this->db->prepare("DELETE FROM genders WHERE `genders`.`ID_GENERO` = ?");
       $query->execute([$id]);
     } catch (\Throwable $th) {
       echo $th;

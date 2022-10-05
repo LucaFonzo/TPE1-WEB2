@@ -6,6 +6,7 @@ require_once 'app/models/gender.model.php';
 class MovieController {
   private $view;
   private $model;
+  private $modelGender;
 
   function __construct(){
     $this->view = new MovieView();
@@ -14,7 +15,7 @@ class MovieController {
   }
 
   public function showMovies(){
-    $movies = $this->modelMovie->getAllMovies();
+    $movies = $this->modelMovie->getAllMoviesAndGenderName();
     $genders = $this->modelGender->getAllGenders();
     $this->view->showMovies($movies,$genders);
   }
@@ -50,7 +51,7 @@ class MovieController {
       $linkImagen = $_POST["imagen"];
       $idGenero = $_POST["genero"];
       $this->modelMovie->addMovie($titulo,$autor,$descripcion,$fechaEstreno,$linkImagen,$idGenero);
-      header("Location: " . BASE_URL);
+      header("Location: " . FORM_MOVIE);
     }
   }
   public function editMovie($id){
@@ -62,7 +63,7 @@ class MovieController {
       $linkImagen = $_POST["imagen"];
       $idGenero = $_POST["genero"];
       $this->modelMovie->editMovie($titulo,$descripcion,$autor,$fechaEstreno,$linkImagen,$idGenero,$id);
-      header("Location: " . BASE_URL);
+      header("Location: " . FORM_MOVIE);
     }
   }
 

@@ -18,7 +18,7 @@ class GenderController {
     if (isset($_POST["gender"])){
       $this->model->addGender($_POST["gender"]);
     }
-    header("Location: " . BASE_URL);
+    header("Location: " . FORM_GENDER);
   }
 
   public function showEditForm($id){
@@ -31,10 +31,10 @@ class GenderController {
     if (isset($_POST["gender"])){
       $this->model->editGender($_POST["gender"],$id);
     }
-    header("Location: ". BASE_URL);
+    header("Location: ". FORM_GENDER);
   }
   public function deleteGender($id){
     $this->model->deleteGender($id);
-    header("Location: " . BASE_URL);
+    header("Location: " . FORM_GENDER);
   }
 }

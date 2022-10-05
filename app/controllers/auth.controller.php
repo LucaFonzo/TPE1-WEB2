@@ -13,4 +13,8 @@ class AuthController {
   public function showFormLogin(){
     $this->view->showFormLogin();
   }
+
+  public function showFormRegister(){
+    $this->view->showFormRegister();
+  }
 }

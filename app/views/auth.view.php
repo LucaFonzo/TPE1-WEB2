@@ -8,6 +8,12 @@ class AuthView {
   }
 
   public function showFormLogin(){
+    $this->smarty->assign('action',"login");
+    $this->smarty->display('formLogin.tpl');
+  }
+
+  public function showFormRegister(){
+    $this->smarty->assign('action',"register");
     $this->smarty->display('formLogin.tpl');
   }
 }

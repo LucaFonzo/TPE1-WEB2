@@ -13,6 +13,9 @@
       <a href="showEditMovie/{{$movie->ID}}" class="btn btn-warning">Editar</a>
     </div>
   </div>
+    <div class="">
+    <p>Genero: {{$movie->nombre}}</p>
+  </div>
   </div>
   {{/foreach}}
   </div>

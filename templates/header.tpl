@@ -28,7 +28,7 @@
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
           {{foreach from=$genders item=$gender}}
-            <li><a class="dropdown-item" href="gender/{{$gender->ID}}">{{$gender->nombre}}</a></li>
+            <li><a class="dropdown-item" href="gender/{{$gender->ID_GENERO}}">{{$gender->nombre}}</a></li>
           {{/foreach}}
           </ul>
         </li>
@@ -42,7 +42,8 @@
         <li><a href="genderForm" class="dropdown-item" type="button">Agregar/Editar/Eliminar<br>Genero</a></li>
       </ul>
       </div>
-        <a href="formLogin" class="btn btn-outline-success" type="submit">Login</a>
+        <a href="formLogin" class="btn btn-outline-success mx-3" type="submit">Login</a>
+        <a href="formRegister" class="btn btn-outline-success" type="submit">Register</a>
     </div>
   </div>
 </nav>

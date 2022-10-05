@@ -29,8 +29,8 @@
   <li class='list-group-item d-flex justify-content-between align-items-center'>
   <span>{{$gender->nombre}}</span>
             <div class="ml-auto">
-                <a href='editForm/{{$gender->ID}}' type='button' class='btn btn-warning'>Editar</a>
-                <a href='deleteGender/{{$gender->ID}}' type='button' class='btn btn-danger'>Borrar</a>
+                <a href='editForm/{{$gender->ID_GENERO}}' type='button' class='btn btn-warning'>Editar</a>
+                <a href='deleteGender/{{$gender->ID_GENERO}}' type='button' class='btn btn-danger'>Borrar</a>
             </div>
         </li>
 {{/foreach}}

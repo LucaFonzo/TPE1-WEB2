@@ -4,6 +4,8 @@ require_once 'app/controllers/auth.controller.php';
 require_once 'app/controllers/gender.controller.php';
 
 define('BASE_URL', '//'.$_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']).'/');
+define('FORM_MOVIE', '//'.$_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']).'/showAddMovie');
+define('FORM_GENDER', '//'.$_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']).'/genderForm');
 
 if (!empty($_GET['action'])){
   $action = $_GET['action'];
@@ -55,6 +57,10 @@ switch ($params[0]) {
     $controller = new AuthController();
     $controller->showFormLogin();
     break;
+    case 'formRegister':
+      $controller = new AuthController();
+      $controller->showFormRegister();
+      break;
   case 'genderForm':
     $controller = new GenderController();
     $controller->showGendersAndForm();

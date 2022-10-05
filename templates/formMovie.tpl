@@ -27,7 +27,7 @@
   </div>
   <div class="col-12">
     <label for="fechaEstreno" class="form-label">Fecha de estreno *</label>
-    <input type="text" class="form-control" id="fechaEstreno" name="fechaEstreno" placeholder="dd/mm/yyyy" 
+    <input type="text" class="form-control" id="fechaEstreno" name="fechaEstreno" placeholder="dd/mm/yyyy"
     {{if isset($movie->fecha_estreno)}}
       value="{{$movie->fecha_estreno}}"
     {{/if}}
@@ -35,7 +35,7 @@
   </div>
   <div class="col-md-6">
     <label for="imagen" class="form-label">Imagen *</label>
-    <input type="text" class="form-control" id="imagen" name="imagen" placeholder="Ingresar link a una imagen..." 
+    <input type="text" class="form-control" id="imagen" name="imagen" placeholder="Ingresar link a una imagen..."
     {{if isset($movie->imagen)}}
       value="{{$movie->imagen}}"
     {{/if}}
