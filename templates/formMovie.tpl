@@ -45,9 +45,9 @@
     <label for="genero" class="form-label">Genero Pertence *</label>
     <select id="genero" name="genero" class="form-select">
     {{foreach from=$genders item=$gender}}
-      <option value="{{$gender->ID}}"
+      <option value="{{$gender->ID_GENERO}}"
       {{if isset($movie->id_genero_fk)}}
-        {{if  {{$gender->ID}} eq {{$movie->id_genero_fk}} }}
+        {{if  {{$gender->ID_GENERO}} eq {{$movie->id_genero_fk}} }}
         selected
         {{/if}}
       {{/if}}
