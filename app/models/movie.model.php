@@ -28,7 +28,7 @@ class MovieModel{
     return $movie;
   }
   public function addMovie($titulo,$descripcion,$autor,$fechaEstreno,$idGenero,$imagen = null){
-    $pathImagen = null;
+    $pathImagen = '';
     if ($imagen){
       $pathImagen = $this->uploadImage($imagen);
     }
@@ -36,7 +36,7 @@ class MovieModel{
     $query->execute([$titulo,$descripcion,$autor,$fechaEstreno,$idGenero,$pathImagen]);
   }
   public function editMovie($titulo,$descripcion,$autor,$fechaEstreno,$idGenero,$id,$imagen = null){
-    $pathImagen = null;
+    $pathImagen = '';
     if ($imagen){
       $pathImagen = $this->uploadImage($imagen);
     }
