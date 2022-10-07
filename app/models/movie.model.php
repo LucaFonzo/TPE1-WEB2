@@ -35,9 +35,13 @@ class MovieModel{
     $query = $this->db->prepare("INSERT INTO `movies` (`titulo`, `descripcion`, `autor`, `fecha_estreno`, `id_genero_fk`, `imagen`) VALUES (?,?,?,?,?,?)");
     $query->execute([$titulo,$descripcion,$autor,$fechaEstreno,$idGenero,$pathImagen]);
   }
-  public function editMovie($titulo,$descripcion,$autor,$fechaEstreno,$idGenero,$id,$linkImagen){
+  public function editMovie($titulo,$descripcion,$autor,$fechaEstreno,$idGenero,$id,$imagen = null){
+    $pathImagen = null;
+    if ($imagen){
+      $pathImagen = $this->uploadImage($imagen);
+    }
     $query = $this->db->prepare("UPDATE `movies` SET `titulo` = ?, `descripcion` = ?, `autor` = ?, `fecha_estreno` = ?, `imagen` = ?, `id_genero_fk` = ? WHERE `movies`.`ID` = ?");
-    $query->execute([$titulo,$descripcion,$autor,$fechaEstreno,$idGenero,$id,$linkImagen = null]);
+    $query->execute([$titulo,$descripcion,$autor,$fechaEstreno,$pathImagen,$idGenero,$id]);
   }
   public function deleteMovie($id){
     $query = $this->db->prepare("DELETE FROM movies WHERE `movies`.`ID` = ?");
