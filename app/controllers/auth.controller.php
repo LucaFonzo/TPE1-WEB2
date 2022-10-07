@@ -27,12 +27,10 @@ class AuthController {
     $user = $this->model->getUserByEmail($email);
 
     if ($user && password_verify($password,$user->password)){
-
       session_start();
       $_SESSION["ID_USER"] = $user->id_user;
       $_SESSION["EMAIL_USER"] = $user->email;
       $_SESSION["IS_LOGGED"] = true;
-
       header("Location: " . BASE_URL);
     }else {
       header("Location: " . FORM_LOGIN);

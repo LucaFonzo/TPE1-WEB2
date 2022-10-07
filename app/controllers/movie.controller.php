@@ -50,25 +50,33 @@ class MovieController {
   }
   public function addMovie(){
     $this->authHelper->verifyLoggedIn();
-    if (isset($_POST["titulo"]) && isset($_POST["autor"]) && $_POST["descripcion"] && $_POST["fechaEstreno"] && $_POST["imagen"] && $_POST["genero"]){
+    if (isset($_POST["titulo"]) && isset($_POST["autor"]) && $_POST["descripcion"] && $_POST["fechaEstreno"] && $_POST["genero"]){
+      if($_FILES['imagen']['type'] == "image/jpg" || $_FILES['imagen']['type'] == "image/jpeg" || $_FILES['imagen']['type'] == "image/png"){
+        $titulo = $_POST["titulo"];
+        $autor = $_POST["autor"];
+        $descripcion = $_POST["descripcion"];
+        $fechaEstreno = $_POST["fechaEstreno"];
+        $idGenero = $_POST["genero"];
+        $this->modelMovie->addMovie($titulo,$autor,$descripcion,$fechaEstreno,$idGenero,$_FILES["imagen"]);
+      }else {
       $titulo = $_POST["titulo"];
       $autor = $_POST["autor"];
       $descripcion = $_POST["descripcion"];
       $fechaEstreno = $_POST["fechaEstreno"];
-      $linkImagen = $_POST["imagen"];
       $idGenero = $_POST["genero"];
-      $this->modelMovie->addMovie($titulo,$autor,$descripcion,$fechaEstreno,$linkImagen,$idGenero);
+      $this->modelMovie->addMovie($titulo,$autor,$descripcion,$fechaEstreno,$idGenero);
+      }
       header("Location: " . FORM_MOVIE);
     }
   }
   public function editMovie($id){
     $this->authHelper->verifyLoggedIn();
-    if (isset($_POST["titulo"]) && $_POST["descripcion"] && isset($_POST["autor"])  && $_POST["fechaEstreno"] && $_POST["imagen"] && $_POST["genero"]){
+    if (isset($_POST["titulo"]) && $_POST["descripcion"] && isset($_POST["autor"])  && $_POST["fechaEstreno"] && $_FILES["imagen"] && $_POST["genero"]){
       $titulo = $_POST["titulo"];
       $autor = $_POST["autor"];
       $descripcion = $_POST["descripcion"];
       $fechaEstreno = $_POST["fechaEstreno"];
-      $linkImagen = $_POST["imagen"];
+      $linkImagen = $_FILES["imagen"];
       $idGenero = $_POST["genero"];
       $this->modelMovie->editMovie($titulo,$descripcion,$autor,$fechaEstreno,$linkImagen,$idGenero,$id);
       header("Location: " . BASE_URL);

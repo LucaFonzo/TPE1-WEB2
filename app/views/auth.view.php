@@ -7,15 +7,11 @@ class AuthView {
     $this->smarty = new Smarty();
   }
 
-  public function showFormLogin($genders){
+  public function showFormLogin($genders,$error = null){
+    $this->smarty->assign('error',$error);
     $this->smarty->assign('genders',$genders);
     $this->smarty->assign('action',"verifyUser");
     $this->smarty->display('formLogin.tpl');
   }
 
-  public function showFormRegister($genders){
-    $this->smarty->assign('genders',$genders);
-    $this->smarty->assign('action',"register");
-    $this->smarty->display('formLogin.tpl');
-  }
 }

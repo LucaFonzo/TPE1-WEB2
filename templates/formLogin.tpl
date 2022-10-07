@@ -17,6 +17,9 @@
             </div>
             <button class="btn btn-primary btn-lg btn-block" type="submit">Login</button>
           </div>
+          {{if isset({{$error}})}}
+            <p class="alert-danger">{{$error}}</p>
+          {{/if}}
         </div>
       </div>
     </div>

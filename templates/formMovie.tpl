@@ -1,6 +1,6 @@
 {{include file="header.tpl"}}
 <h2 class="mx-4 mt-2">{{$h2}}</h2>
-<form class="row g-3 container-form" method="POST" action="{{$action}}">
+<form class="row g-3 container-form" method="POST" action="{{$action}}" enctype="multipart/form-data">
   <div class="col-md-6">
     <label for="titulo" class="form-label">Titulo *</label>
     <input type="text" class="form-control" id="titulo" name="titulo" placeholder="Titanic..." 
@@ -35,7 +35,7 @@
   </div>
   <div class="col-md-6">
     <label for="imagen" class="form-label">Imagen *</label>
-    <input type="text" class="form-control" id="imagen" name="imagen" placeholder="Ingresar link a una imagen..."
+    <input type="file" class="form-control" id="imagen" name="imagen" placeholder="Ingresar link a una imagen..."
     {{if isset($movie->imagen)}}
       value="{{$movie->imagen}}"
     {{/if}}

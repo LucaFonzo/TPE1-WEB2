@@ -27,16 +27,26 @@ class MovieModel{
     $movie = $query->fetchAll(PDO::FETCH_OBJ);
     return $movie;
   }
-  public function addMovie($titulo,$autor,$descripcion,$fechaEstreno,$linkImagen,$idGenero){
-    $query = $this->db->prepare("INSERT INTO `movies` (`titulo`, `descripcion`, `autor`, `fecha_estreno`, `imagen`, `id_genero_fk`) VALUES (?,?,?,?,?,?)");
-    $query->execute([$titulo,$descripcion,$autor,$fechaEstreno,$linkImagen,$idGenero]);
+  public function addMovie($titulo,$descripcion,$autor,$fechaEstreno,$idGenero,$imagen = null){
+    $pathImagen = null;
+    if ($imagen){
+      $pathImagen = $this->uploadImage($imagen);
+    }
+    $query = $this->db->prepare("INSERT INTO `movies` (`titulo`, `descripcion`, `autor`, `fecha_estreno`, `id_genero_fk`, `imagen`) VALUES (?,?,?,?,?,?)");
+    $query->execute([$titulo,$descripcion,$autor,$fechaEstreno,$idGenero,$pathImagen]);
   }
-  public function editMovie($titulo,$descripcion,$autor,$fechaEstreno,$linkImagen,$idGenero,$id){
+  public function editMovie($titulo,$descripcion,$autor,$fechaEstreno,$idGenero,$id,$linkImagen){
     $query = $this->db->prepare("UPDATE `movies` SET `titulo` = ?, `descripcion` = ?, `autor` = ?, `fecha_estreno` = ?, `imagen` = ?, `id_genero_fk` = ? WHERE `movies`.`ID` = ?");
-    $query->execute([$titulo,$descripcion,$autor,$fechaEstreno,$linkImagen,$idGenero,$id]);
+    $query->execute([$titulo,$descripcion,$autor,$fechaEstreno,$idGenero,$id,$linkImagen = null]);
   }
   public function deleteMovie($id){
     $query = $this->db->prepare("DELETE FROM movies WHERE `movies`.`ID` = ?");
     $query->execute([$id]);
   }
+
+  private function uploadImage($image){
+        $target = "img/movie/" . uniqid() . "." . strtolower(pathinfo($image['name'], PATHINFO_EXTENSION));
+        move_uploaded_file($image['tmp_name'], $target);
+        return $target;
+    }
 }
