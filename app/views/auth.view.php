@@ -9,7 +9,7 @@ class AuthView {
 
   public function showFormLogin($genders){
     $this->smarty->assign('genders',$genders);
-    $this->smarty->assign('action',"login");
+    $this->smarty->assign('action',"verifyUser");
     $this->smarty->display('formLogin.tpl');
   }
 

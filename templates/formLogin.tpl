@@ -8,14 +8,14 @@
           <div class="card-body p-5 text-center">
             <h3 class="mb-5">Sign in</h3>
             <div class="form-outline mb-4">
-              <input type="email" id="inputEmail" name="inputEmail" class="form-control form-control-lg" />
+              <input type="email" id="email" name="email" class="form-control form-control-lg" />
               <label class="form-label" for="inputEmail">Email</label>
             </div>
             <div class="form-outline mb-4">
-              <input type="password" id="inputPassword" name="inputPassword" class="form-control form-control-lg" />
-              <label class="form-label" for="inputPassword">Password</label>
+              <input type="password" id="password" name="password" class="form-control form-control-lg" />
+              <label class="form-label" for="password">Password</label>
             </div>
-            <a href="login" class="btn btn-primary btn-lg btn-block" type="submit">Login</a>
+            <button class="btn btn-primary btn-lg btn-block" type="submit">Login</button>
           </div>
         </div>
       </div>

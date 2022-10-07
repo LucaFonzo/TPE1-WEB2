@@ -33,6 +33,7 @@
           </ul>
         </li>
       </ul>
+      {{if isset($smarty.session.ID_USER)}}
           <div class="dropdown mx-3">
       <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="false">
         Agregar Item/Genero
@@ -42,8 +43,12 @@
         <li><a href="genderForm" class="dropdown-item" type="button">Agregar/Editar/Eliminar<br>Genero</a></li>
       </ul>
       </div>
-        <a href="formLogin" class="btn btn-outline-success mx-3" type="submit">Login</a>
-        <a href="formRegister" class="btn btn-outline-success" type="submit">Register</a>
+      {{/if}}
+      {{if !isset($smarty.session.ID_USER)}}
+        <a href="formLogin" class="btn btn-outline-success mx-3" type="submit">LogIn</a>
+      {{else}}
+        <a href="logOut" class="btn btn-outline-success mx-3" type="submit">LogOut</a>
+      {{/if}}
     </div>
   </div>
 </nav>
