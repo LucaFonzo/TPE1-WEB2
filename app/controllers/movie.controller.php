@@ -57,14 +57,14 @@ class MovieController {
         $descripcion = $_POST["descripcion"];
         $fechaEstreno = $_POST["fechaEstreno"];
         $idGenero = $_POST["genero"];
-        $this->modelMovie->addMovie($titulo,$autor,$descripcion,$fechaEstreno,$idGenero,$_FILES["imagen"]);
+        $this->modelMovie->addMovie($titulo,$descripcion,$autor,$fechaEstreno,$idGenero,$_FILES["imagen"]);
       }else {
       $titulo = $_POST["titulo"];
       $autor = $_POST["autor"];
       $descripcion = $_POST["descripcion"];
       $fechaEstreno = $_POST["fechaEstreno"];
       $idGenero = $_POST["genero"];
-      $this->modelMovie->addMovie($titulo,$autor,$descripcion,$fechaEstreno,$idGenero);
+      $this->modelMovie->addMovie($titulo,$descripcion,$autor,$fechaEstreno,$idGenero);
       }
       header("Location: " . FORM_MOVIE);
     }
@@ -79,6 +79,13 @@ class MovieController {
       $fechaEstreno = $_POST["fechaEstreno"];
       $idGenero = $_POST["genero"];
       $this->modelMovie->editMovie($titulo,$descripcion,$autor,$fechaEstreno,$idGenero,$id,$_FILES["imagen"]);
+    }else {
+      $titulo = $_POST["titulo"];
+      $autor = $_POST["autor"];
+      $descripcion = $_POST["descripcion"];
+      $fechaEstreno = $_POST["fechaEstreno"];
+      $idGenero = $_POST["genero"];
+      $this->modelMovie->editMovie($titulo,$descripcion,$autor,$fechaEstreno,$idGenero,$id);
     }
       header("Location: " . BASE_URL);
     }
