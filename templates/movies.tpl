@@ -17,6 +17,7 @@
   </div>
     <div>
     <p>Genero: {{$movie->nombre}}</p>
+    <p>Autor: {{$movie->autor}}</p>
   </div>
   </div>
   {{/foreach}}
