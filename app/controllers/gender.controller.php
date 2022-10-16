@@ -12,11 +12,13 @@ class GenderController {
     $this->view = new GenderView();
     $this->authHelper = new AuthHelper();
   }
+
   public function showGendersAndForm(){
     $this->authHelper->verifyLoggedIn();
     $genders = $this->model->getAllGenders();
     $this->view->showGendersAndForm($genders);
   }
+
   public function addGender(){
     $this->authHelper->verifyLoggedIn();
     if (isset($_POST["gender"])){
@@ -39,6 +41,7 @@ class GenderController {
     }
     header("Location: ". FORM_GENDER);
   }
+
   public function deleteGender($id){
     $this->authHelper->verifyLoggedIn();
     $this->model->deleteGender($id);

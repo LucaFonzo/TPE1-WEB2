@@ -3,21 +3,21 @@
 <div class="row row-cols-3">
   {{foreach from=$movies item=$movie}}
   <div class="card col m-3" style="width: 18rem;">
-  <img src="{{$movie->imagen}}" class="card-img-top" alt="...">
+  <img src="{{$movie->image}}" class="card-img-top" alt="...">
   <div class="card-body">
-    <h5 class="card-title">{{$movie->titulo}}</h5>
-    <p class="card-text">{{$movie->descripcion|truncate:100}}</p>
+    <h5 class="card-title">{{$movie->title}}</h5>
+    <p class="card-text">{{$movie->description|truncate:100}}</p>
     <div class="btn-container">
-      <a href="item/{{$movie->ID}}" class="btn btn-primary">Ver Mas</a>
+      <a href="item/{{$movie->id_movie}}" class="btn btn-primary">Ver Mas</a>
       {{if isset($smarty.session.ID_USER)}}
-        <a href="delete/{{$movie->ID}}" class="btn btn-danger">Eliminar</a>
-        <a href="showEditMovie/{{$movie->ID}}" class="btn btn-warning">Editar</a>
+        <a href="delete/{{$movie->id_movie}}" class="btn btn-danger">Eliminar</a>
+        <a href="showEditMovie/{{$movie->id_movie}}" class="btn btn-warning">Editar</a>
       {{/if}}
     </div>
   </div>
     <div>
-    <p>Genero: {{$movie->nombre}}</p>
-    <p>Autor: {{$movie->autor}}</p>
+    <p>Genero: {{$movie->name}}</p>
+    <p>Autor: {{$movie->author}}</p>
   </div>
   </div>
   {{/foreach}}

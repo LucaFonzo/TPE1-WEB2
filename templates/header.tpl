@@ -11,7 +11,7 @@
 </head>
 <body>
 <header>
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light" style="background-color:#393E46;">
   <div class="container-fluid">
     <a class="navbar-brand" href="home">Info Peliculas</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -28,7 +28,7 @@
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
           {{foreach from=$genders item=$gender}}
-            <li><a class="dropdown-item" href="gender/{{$gender->ID_GENERO}}">{{$gender->nombre}}</a></li>
+            <li><a class="dropdown-item" href="gender/{{$gender->id_gender}}">{{$gender->name}}</a></li>
           {{/foreach}}
           </ul>
         </li>
@@ -46,6 +46,7 @@
       {{/if}}
       {{if !isset($smarty.session.ID_USER)}}
         <a href="formLogin" class="btn btn-outline-success mx-3" type="submit">LogIn</a>
+        <a href="formRegister" class="btn btn-outline-success mx-3" type="submit">Register</a>
       {{else}}
         <a href="logOut" class="btn btn-outline-success mx-3" type="submit">LogOut</a>
       {{/if}}

@@ -3,55 +3,58 @@
 <form class="row g-3 container-form" method="POST" action="{{$action}}" enctype="multipart/form-data">
   <div class="col-md-6">
     <label for="titulo" class="form-label">Titulo *</label>
-    <input type="text" class="form-control" id="titulo" name="titulo" placeholder="Titanic..." 
-    {{if isset($movie->titulo)}}
-      value="{{$movie->titulo}}"
+    <input type="text" class="form-control" id="titulo" name="titulo" placeholder="Titanic..."
+    required
+    {{if isset($movie->title)}}
+      value="{{$movie->title}}"
     {{/if}}
     >
   </div>
   <div class="col-md-6">
     <label for="autor" class="form-label">Autor *</label>
-    <input type="text" class="form-control" id="autor" name="autor" placeholder="James Cameron..." 
-    {{if isset($movie->autor)}}
-      value="{{$movie->autor}}"
+    <input type="text" class="form-control" id="autor" name="autor" placeholder="James Cameron..."
+    required
+    {{if isset($movie->author)}}
+      value="{{$movie->author}}"
     {{/if}}
     >
   </div>
   <div class="col-12">
     <label for="descripcion" class="form-label">Descripcion *</label>
-    <textarea type="text" class="form-control" rows="10" id="descripcion" name="descripcion" placeholder="Descripcion...">
-    {{if isset($movie->descripcion)}}
-      {{$movie->descripcion}}
+    <textarea type="text" class="form-control" rows="10" id="descripcion" name="descripcion" placeholder="Descripcion..." required>
+    {{if isset($movie->description)}}
+      {{$movie->description}}
     {{/if}}
     </textarea>
   </div>
   <div class="col-12">
     <label for="fechaEstreno" class="form-label">Fecha de estreno *</label>
     <input type="text" class="form-control" id="fechaEstreno" name="fechaEstreno" placeholder="dd/mm/yyyy"
-    {{if isset($movie->fecha_estreno)}}
-      value="{{$movie->fecha_estreno}}"
+    required
+    {{if isset($movie->premiere_date)}}
+      value="{{$movie->premiere_date}}"
     {{/if}}
     >
   </div>
   <div class="col-md-6">
     <label for="imagen" class="form-label">Imagen *</label>
     <input type="file" class="form-control" id="imagen" name="imagen" placeholder="Ingresar link a una imagen..."
-    {{if isset($movie->imagen)}}
-      value="{{$movie->imagen}}"
+    {{if isset($movie->image)}}
+      value="{{$movie->image}}"
     {{/if}}
     >
   </div>
   <div class="col-md-4">
     <label for="genero" class="form-label">Genero Pertence *</label>
-    <select id="genero" name="genero" class="form-select">
+    <select id="genero" name="genero" class="form-select" required>
     {{foreach from=$genders item=$gender}}
-      <option value="{{$gender->ID_GENERO}}"
-      {{if isset($movie->id_genero_fk)}}
-        {{if  {{$gender->ID_GENERO}} eq {{$movie->id_genero_fk}} }}
+      <option value="{{$gender->id_gender}}"
+      {{if isset($movie->id_gender_fk)}}
+        {{if  {{$gender->id_gender}} eq {{$movie->id_gender_fk}} }}
         selected
         {{/if}}
       {{/if}}
-      >{{$gender->nombre}}</option>
+      >{{$gender->name}}</option>
     {{/foreach}}
     </select>
   </div>

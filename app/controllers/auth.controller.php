@@ -20,6 +20,21 @@ class AuthController {
     $this->view->showFormLogin($genders);
   }
 
+  public function showFormRegister(){
+    $genders = $this->genderModel->getAllGenders();
+    $this->view->showFormRegister($genders);
+  }
+
+  public function addUser(){
+    $email = $_POST["email"];
+    $password = $_POST["password"];
+    if (isset($email) && isset($password)){
+      $hashPassword = password_hash($password,PASSWORD_BCRYPT);
+      $this->model->addUser($email,$hashPassword);
+    }
+    header("Location: " . BASE_URL);
+  }
+
   public function verifyUser(){
     $email = $_POST["email"];
     $password = $_POST["password"];

@@ -14,6 +14,7 @@ class GenderView {
     $this->smarty->assign('genders',$genders);
     $this->smarty->display("genders.tpl");
   }
+
   public function showEditForm($id,$genderToEdit,$genders){
     $this->smarty->assign('action',"editGender/$id");
     $this->smarty->assign('h3',"Editar Genero");

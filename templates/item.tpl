@@ -1,14 +1,14 @@
 {{include file="header.tpl"}}
-  <div class="container">
+  <div class="container item">
   <div>
-    <h2 class="item-title">{{$movie->titulo}}</h2>
-    <p class="author">Autor: <span>{{$movie->autor}}</span></p>
-    <p class="release-date">Fecha estreno: {{$movie->fecha_estreno}}</p>
+    <h2 class="item-title">{{$movie->title}}</h2>
+    <p class="author">Autor: <span>{{$movie->author}}</span></p>
+    <p class="release-date">Fecha estreno: {{$movie->premiere_date}}</p>
     <div class="description-container">
-    <div>
-    <img src="{{$movie->imagen}}" class="img-item mb-3">
+    <p>{{$movie->description}}<p>
     </div>
-    <p class="description-item">{{$movie->descripcion}}<p>
+    <div class="img-item">
+    <img src="{{$movie->image}}" class="mb-3">
     </div>
     </div>
   </div>

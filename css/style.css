@@ -41,3 +41,11 @@
 .list-container {
   margin-left: 50px;
 }
+
+.item {
+  min-height: calc(100vh - 180px);
+}
+.img-item {
+  display: flex;
+  justify-content: center;
+}

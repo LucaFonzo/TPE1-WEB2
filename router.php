@@ -58,6 +58,14 @@ switch ($params[0]) {
     $controller = new AuthController();
     $controller->showFormLogin();
     break;
+    case 'formRegister':
+      $controller = new AuthController();
+      $controller->showFormRegister();
+      break;
+    case 'addUser':
+      $controller = new AuthController();
+      $controller->addUser();
+      break;
     case 'verifyUser':
       $controller = new AuthController();
       $controller->verifyUser();
@@ -90,7 +98,6 @@ switch ($params[0]) {
         $controller->deleteGender($id);
         break;
     default:
-    $controller = new MovieController();
-    $controller->showMovies();
+    header("Location: " . BASE_URL);
     break;
 }

@@ -36,6 +36,7 @@ class MovieController {
     $movie = $this->modelMovie->getMovieById($id);
     $this->view->showMovie($movie,$genders);
   }
+
   public function showAddMovie(){
     $this->authHelper->verifyLoggedIn();
     $genders = $this->modelGender->getAllGenders();
@@ -48,17 +49,21 @@ class MovieController {
     $genders = $this->modelGender->getAllGenders();
     $this->view->showEditMovie($movie,$id,$genders);
   }
+
   public function addMovie(){
     $this->authHelper->verifyLoggedIn();
     if (isset($_POST["titulo"]) && isset($_POST["autor"]) && $_POST["descripcion"] && $_POST["fechaEstreno"] && $_POST["genero"]){
-      if($_FILES['imagen']['type'] == "image/jpg" || $_FILES['imagen']['type'] == "image/jpeg" || $_FILES['imagen']['type'] == "image/png"){
+      if($_FILES['imagen']['type'] == "image/jpg" || $_FILES['imagen']['type'] == "image/jpeg" || $_FILES['imagen']['type'] == "image/png")
+      {
         $titulo = $_POST["titulo"];
         $autor = $_POST["autor"];
         $descripcion = $_POST["descripcion"];
         $fechaEstreno = $_POST["fechaEstreno"];
         $idGenero = $_POST["genero"];
         $this->modelMovie->addMovie($titulo,$descripcion,$autor,$fechaEstreno,$idGenero,$_FILES["imagen"]);
-      }else {
+      }
+      else
+      {
       $titulo = $_POST["titulo"];
       $autor = $_POST["autor"];
       $descripcion = $_POST["descripcion"];
@@ -69,17 +74,22 @@ class MovieController {
       header("Location: " . FORM_MOVIE);
     }
   }
+
   public function editMovie($id){
     $this->authHelper->verifyLoggedIn();
-    if (isset($_POST["titulo"]) && $_POST["descripcion"] && isset($_POST["autor"])  && $_POST["fechaEstreno"] && $_FILES["imagen"] && $_POST["genero"]){
-      if($_FILES['imagen']['type'] == "image/jpg" || $_FILES['imagen']['type'] == "image/jpeg" || $_FILES['imagen']['type'] == "image/png"){
+    if (isset($_POST["titulo"]) && $_POST["descripcion"] && isset($_POST["autor"])  && $_POST["fechaEstreno"] && $_FILES["imagen"] && $_POST["genero"])
+    {
+      if($_FILES['imagen']['type'] == "image/jpg" || $_FILES['imagen']['type'] == "image/jpeg" || $_FILES['imagen']['type'] == "image/png")
+      {
       $titulo = $_POST["titulo"];
       $autor = $_POST["autor"];
       $descripcion = $_POST["descripcion"];
       $fechaEstreno = $_POST["fechaEstreno"];
       $idGenero = $_POST["genero"];
       $this->modelMovie->editMovie($titulo,$descripcion,$autor,$fechaEstreno,$idGenero,$id,$_FILES["imagen"]);
-    }else {
+    }
+    else
+    {
       $titulo = $_POST["titulo"];
       $autor = $_POST["autor"];
       $descripcion = $_POST["descripcion"];
