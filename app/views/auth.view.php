@@ -15,7 +15,6 @@ class AuthView {
     $this->smarty->display('formLogin.tpl');
   }
 
-
   public function showFormRegister($genders,$error = null){
     $this->smarty->assign('error',$error);
     $this->smarty->assign('h3',"Register");

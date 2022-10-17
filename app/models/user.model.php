@@ -23,6 +23,4 @@ class UserModel {
     $query = $this->db->prepare("INSERT INTO users (`email`,`password`) VALUES (?,?)");
     $query->execute([$email,$password]);
   }
-
-
 }
