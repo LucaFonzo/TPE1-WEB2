@@ -4,6 +4,7 @@
     <h2 class="item-title">{{$movie->title}}</h2>
     <p class="author">Autor: <span>{{$movie->author}}</span></p>
     <p class="release-date">Fecha estreno: {{$movie->premiere_date}}</p>
+    <p>Genero: {{$movie->name}}</p>
     <div class="description-container">
     <p>{{$movie->description}}<p>
     </div>

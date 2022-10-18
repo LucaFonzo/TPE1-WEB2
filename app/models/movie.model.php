@@ -26,7 +26,7 @@ class MovieModel{
   }
 
   public function getMovieById($id){
-    $query = $this->db->prepare("SELECT * FROM movies WHERE id_movie = ?");
+    $query = $this->db->prepare("SELECT movies.*, genders.name FROM movies JOIN genders ON movies.id_gender_fk = genders.id_gender WHERE movies.id_movie = ?");
     $query->execute([$id]);
     $movie = $query->fetch(PDO::FETCH_OBJ);
     return $movie;
